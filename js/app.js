@@ -205,7 +205,7 @@ function chainCalcBoxes(pl_c, sk_c, ore_c, rep1, rep2, rep3) {
   }
 
   // 2 chain & 3 chain
-  if (sk_c > 0 && ore_c > 0) {
+  if (pl_c > 0 && sk_c > 0 && ore_c > 0) {
     if ((pl_c / 2) <= sk_c && (pl_c / 2) <= (ore_c / 30)) {
       // если досок меньше всего
       box_count = pl_c / 2;
@@ -251,7 +251,7 @@ function chainCalcBoxes(pl_c, sk_c, ore_c, rep1, rep2, rep3) {
     // chain 3
     // затраты на доски
     let pl3_cost = box_count * 2 * document.getElementById(`plank_price`).value;
-    document.getElementById(`chain_plank_2_cost`).innerHTML = pl3_cost + ` пс.  (расход ${box_count * 2} шт.)`;
+    document.getElementById(`chain_plank_3_cost`).innerHTML = pl3_cost + ` пс.  (расход ${box_count * 2} шт.)`;
     // затраты на шкуру
     let sk3_cost = box_count * document.getElementById(`skin_price`).value;
     document.getElementById(`chain_skin_3_cost`).innerHTML = sk3_cost + ` пс.  (расход ${box_count} шт.)`;
@@ -285,7 +285,55 @@ function chainCalcBoxes(pl_c, sk_c, ore_c, rep1, rep2, rep3) {
     document.getElementById(`chain_result_3`).innerHTML = `<b><u>${res3} пс. за ${box_count} сундуков c товаром.<br>${(res3 / wp3).toFixed(2)} пс. за 1 ОР</u></b>`;
   }
 
+  // если нету досок, чистим 1 и 3 цепочку
+  pl_c <= 0 ? clear('13') : '';
+  // если нету шкур 1-2-3
+  sk_c <= 0 ? clear('123') : '';
+  // если нету руды 2-3
+  ore_c <= 0 ? clear('23') : '';
+}
 
+function clear(str) {
+  let ids = str.split('');
+
+  switch(str) {
+    case '13':
+      ids.forEach(i => {
+        document.getElementById(`chain_plank_${i}_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_skin_${i}_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_tech_${i}_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_wp_${i}_cost`).innerHTML = '0';
+        document.getElementById(`chain_ore_3_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_result_${i}`).innerHTML = `<b><u>0.00 пс.<br>0.00 пс. за 1 ОР</u></b>`;      });
+      break;
+    case '23':
+      ids.forEach(i => {
+        document.getElementById(`chain_plank_3_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_box_1_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_skin_${i}_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_tech_${i}_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_wp_${i}_cost`).innerHTML = '0';
+        document.getElementById(`chain_ore_${i}_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_result_${i}`).innerHTML = `<b><u>0.00 пс.<br>0.00 пс. за 1 ОР</u></b>`;      });
+      break;
+      break;
+
+    case '123':
+      ids.forEach(i => {
+        document.getElementById(`chain_plank_1_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_plank_3_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_box_1_cost`).innerHTML = '0 пс.';
+
+        document.getElementById(`chain_skin_${i}_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_tech_${i}_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_wp_${i}_cost`).innerHTML = '0';
+        document.getElementById(`chain_ore_2_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_ore_3_cost`).innerHTML = '0 пс.';
+        document.getElementById(`chain_result_${i}`).innerHTML = `<b><u>0.00 пс.<br>0.00 пс. за 1 ОР</u></b>`;
+        chain_result_1
+      });
+    break;
+  }
 }
 
 
