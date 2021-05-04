@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/normalize.css" />
+  <link rel="stylesheet/less" href="./css/style.less" />
+  <title>remeslo</title>
+</head>
+
+<body>
+  <div class="page">
+    <!--  -->
+    <div class="resources">
+      <h3>Покупка ресурсов</h3>
+      <!--  -->
+      <div class="res-block">
+        <img src="./img/plank30_1.png" alt="Акарисовые доски" />
+        <div class="content">
+          <table>
+            <tr>
+              <td>Акарисовые доски:</td>
+              <td><input id="plank" type="text" value="0" /> шт.</td>
+            </tr>
+            <tr>
+              <td>Цена за доску:</td>
+              <td><input id="plank_price" type="text" value="135" /> пс.</td>
+            </tr>
+            <tr>
+              <td>Вес:</td>
+              <td>
+                <input id="plank_w" type="text" value="0" disabled /> ед.
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!--  -->
+      <div class="res-block">
+        <img src="./img/skin30_1.png" alt="Шкура динозавра" />
+        <div class="content">
+          <table>
+            <tr>
+              <td>Шкура динозавра:</td>
+              <td><input id="skin" type="text" value="0" /> шт.</td>
+            </tr>
+            <tr>
+              <td>Цена за шкуру:</td>
+              <td><input id="skin_price" type="text" value="200" /> пс.</td>
+            </tr>
+            <tr>
+              <td>Вес:</td>
+              <td>
+                <input id="skin_w" type="text" value="0" disabled /> ед.
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!--  -->
+      <div class="res-block">
+        <img src="./img/ore30_1.png" alt="Вардарит" />
+        <div class="content">
+          <table>
+            <tr>
+              <td>Вардарит:</td>
+              <td><input id="ore" type="text" value="0" /> шт.</td>
+            </tr>
+            <tr>
+              <td>Цена за единицу:</td>
+              <td><input id="ore_price" type="text" value="5" /> пс.</td>
+            </tr>
+            <tr>
+              <td>Вес:</td>
+              <td><input id="ore_w" type="text" value="0" disabled /> ед.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!--  -->
+      <div class="res-block">
+        <div class="content">
+          <table>
+            <tr>
+              <td colspan="2"><b>Чертёж прочного ящика</b></td>
+            </tr>
+            <tr>
+              <td>Цена за чертёж:</td>
+              <td><input id="tech_1_price" type="text" value="30" disabled /> пс.</td>
+            </tr>
+            <tr>
+              <td><label for="tech_1_rep">Покупка за репутацию:</label></td>
+              <td><input id="tech_1_rep" type="checkbox" /></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!--  -->
+      <div class="res-block">
+        <div class="content">
+          <table>
+            <tr>
+              <td colspan="2"><b>Чертёж сундука</b></td>
+            </tr>
+            <tr>
+              <td>Цена за чертёж:</td>
+              <td><input id="tech_2_price" type="text" value="50" disabled /> пс.</td>
+            </tr>
+            <tr>
+              <td><label for="tech_2_rep">Покупка за репутацию:</label></td>
+              <td><input id="tech_2_rep" type="checkbox" /></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!--  -->
+      <div class="res-block">
+        <div class="content">
+          <table>
+            <tr>
+              <td colspan="2"><b>Чертёж сундука с товаром</b></td>
+            </tr>
+            <tr>
+              <td>Цена за чертёж:</td>
+              <td><input id="tech_3_price" type="text" value="75" disabled /> пс.</td>
+            </tr>
+            <tr>
+              <td><label for="tech_3_rep">Покупка за репутацию:</label></td>
+              <td><input id="tech_3_rep" type="checkbox" /></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="crafting">
+      <h3>Изготовление предметов</h3>
+      <!--  -->
+      <div class="craft-block">
+        <div class="title">Прочный ящик <span id="box_1_q">0 шт.</span></div>
+        <img src="./img/box30_1.png" alt="Прочный ящик" />
+        <div class="content">
+          <table>
+            <tr>
+              <td>Затраты на покупку досок:</td>
+              <td><span id="plank_1_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку чертежей:</td>
+              <td><span id="tech_1_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Очков работы:</td>
+              <td><span id="wp_1_cost">0</span></td>
+            </tr>
+            <tr>
+            <tr>
+              <td>Суммарный вес:</td>
+              <td><span id="box_1_w">0 ед.</span></td>
+            </tr>
+            <tr>
+              <td>Цена продажи ящика:</td>
+              <td><input id="box_1_sell" type="text" value="450" /> пс.</td>
+            </tr>
+            <tr>
+              <td>
+                <b><u>Суммарная прибыль:</u></b>
+              </td>
+              <td>
+                <span id="result_1"><b><u>0.00 пс.<br />0.00 пс. за 1 ОР</u></b></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!--  -->
+      <div class="craft-block">
+        <div class="title">Сундук <span id="box_2_q">0 шт.</span></div>
+        <img src="./img/box30_2.png" alt="Сундук" />
+        <div class="content">
+          <table>
+            <tr>
+              <td>Цена покупки прочного ящика:</td>
+              <td><input id="box_1_cost" type="text" value="450" /> пс.</td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку шкур:</td>
+              <td><span id="skin_2_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку чертежей:</td>
+              <td><span id="tech_2_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Очков работы:</td>
+              <td><span id="wp_2_cost">0</span></td>
+            </tr>
+            <tr>
+              <td>Суммарный вес:</td>
+              <td><span id="box_2_w">0 ед.</span></td>
+            </tr>
+            <tr>
+              <td>Цена продажи сундука:</td>
+              <td><input id="box_2_sell" type="text" value="850" /> пс.</td>
+            </tr>
+            <tr>
+              <td>
+                <b><u>Суммарная прибыль:</u></b>
+              </td>
+              <td>
+                <span id="result_2"><b><u>0.00 пс.<br />0.00 пс. за 1 ОР</u></b></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!--  -->
+      <div class="craft-block">
+        <div class="title">
+          Сундук с товаром <span id="box_3_q">0 шт.</span>
+        </div>
+        <img src="./img/box30_3.png" alt="Сундук с товаром" />
+        <div class="content">
+          <table>
+            <tr>
+              <td>Цена за покупку сундука:</td>
+              <td><input id="box_2_cost" type="text" value="850" /> пс.</td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку руды:</td>
+              <td><span id="ore_3_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку чертежей:</td>
+              <td><span id="tech_3_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Очков работы:</td>
+              <td><span id="wp_3_cost">0</span></td>
+            </tr>
+            <tr>
+              <td>Суммарный вес:</td>
+              <td><span id="box_3_w">0 ед.</span></td>
+            </tr>
+            <tr>
+              <td>Цена продажи сундука с товаром:</td>
+              <td><input id="box_3_sell" type="text" value="1225" /> пс.</td>
+            </tr>
+            <tr>
+              <td>
+                <b><u>Суммарная прибыль:</u></b>
+              </td>
+              <td>
+                <span id="result_3"><b><u>0.00 пс.<br />0.00 пс. за 1 ОР</u></b></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="chain">
+      <h3>Производственные цепочки</h3>
+      <!--  -->
+      <div class="chain-block">
+        <div class="title">Прочный ящик » Сундук</div>
+        <div class="image">
+          <img src="./img/box30_1.png" alt="Прочный ящик"> »
+          <img src="./img/box30_2.png" alt="Сундук">
+        </div>
+        <div class="content">
+          <p>
+            Покупаем ресурсы <span>»</span> изготовляем `Прочный ящик` <span>»</span> изготовляем `Сундук`.
+          </p>
+          <table>
+            <tr>
+              <td>Затраты на покупку досок:</td>
+              <td><span id="chain_plank_1_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку шкур:</td>
+              <td><span id="chain_skin_1_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку чертежей:</td>
+              <td><span id="chain_tech_1_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Очков работы:</td>
+              <td><span id="chain_wp_1_cost">0</span></td>
+            </tr>
+            <tr>
+              <td><b><u>Суммарная прибыль:</u></b></td>
+              <td><span id="chain_result_1"><b><u>0.00 пс. <br>0.00 пс. за 1 ОР</u></b></span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!--  -->
+      <div class="chain-block">
+        <div class="title">Сундук » Сундук с товаром</div>
+        <div class="image">
+          <img src="./img/box30_2.png" alt="Сундук"> »
+          <img src="./img/box30_3.png" alt="Сундук с товаром">
+        </div>
+        <div class="content">
+          <p>
+            Покупаем ресурсы <span>»</span> изготовляем `Сундук` <span>»</span> изготовляем `Сундук с товаром`. 
+          </p>
+          <table>
+            <tr>
+              <td>Затраты на покупку прочных ящиков:</td>
+              <td><span id="chain_box_1_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку шкур:</td>
+              <td><span id="chain_skin_2_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку руды:</td>
+              <td><span id="chain_ore_2_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку чертежей:</td>
+              <td><span id="chain_tech_2_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Очков работы:</td>
+              <td><span id="chain_wp_2_cost">0</span></td>
+            </tr>
+            <tr>
+              <td><b><u>Суммарная прибыль:</u></b></td>
+              <td><span id="chain_result_2"><b><u>0.00 пс. <br>0.00 пс. за 1 ОР</u></b></span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!--  -->
+      <div class="chain-block">
+        <div class="title">Прочный ящик » Сундук » Сундук с товаром</div>
+        <div class="image">
+          <img src="./img/box30_1.png" alt="Прочный ящик"> »
+          <img src="./img/box30_2.png" alt="Сундук"> »
+          <img src="./img/box30_3.png" alt="Сундук с товаром">
+        </div>
+        <div class="content">
+          <p>
+            Покупаем ресурсы <span>»</span> изготовляем `Прочный ящик` <span>»</span> изготовляем `Сундук` <span>»</span> изготовляем `Сундук с товаром`. 
+          </p>
+          <table>
+            <tr>
+              <td>Затраты на покупку досок:</td>
+              <td><span id="chain_plank_2_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку шкур:</td>
+              <td><span id="chain_skin_3_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку руды:</td>
+              <td><span id="chain_ore_3_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Затраты на покупку чертежей:</td>
+              <td><span id="chain_tech_3_cost">0 пс.</span></td>
+            </tr>
+            <tr>
+              <td>Очков работы:</td>
+              <td><span id="chain_wp_3_cost">0</span></td>
+            </tr>
+            <tr>
+              <td><b><u>Суммарная прибыль:</u></b></td>
+              <td><span id="chain_result_3"><b><u>0.00 пс. <br>0.00 пс. за 1 ОР</u></b></span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="msg"></div>
+  <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
